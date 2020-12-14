@@ -66,7 +66,7 @@ fun createContainerForLazyResolveWithJava(
     configureJavaClassFinder: (StorageComponentContainer.() -> Unit)? = null,
     javaClassTracker: JavaClassesTracker? = null,
     implicitsResolutionFilter: ImplicitsExtensionsResolutionFilter? = null,
-    sealedInheritorsProvider: SealedClassInheritorsProvider = SealedClassInheritorsProviderImpl
+    sealedInheritorsProvider: SealedClassInheritorsProvider = ClSealedClassInheritorsProvider
 ): StorageComponentContainer = createContainer("LazyResolveWithJava", JvmPlatformAnalyzerServices) {
     configureModule(
         moduleContext, jvmPlatform, JvmPlatformAnalyzerServices, bindingTrace, languageVersionSettings,

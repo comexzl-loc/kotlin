@@ -19,7 +19,7 @@ abstract class SealedClassInheritorsProvider {
     ): Collection<ClassDescriptor>
 }
 
-object SealedClassInheritorsProviderImpl : SealedClassInheritorsProvider() {
+object ClSealedClassInheritorsProvider : SealedClassInheritorsProvider() {
     // Note this is a generic and slow implementation which would work almost for any subclass of ClassDescriptor.
     // Please avoid using it in new code.
     // TODO: do something more clever instead at call sites of this function
