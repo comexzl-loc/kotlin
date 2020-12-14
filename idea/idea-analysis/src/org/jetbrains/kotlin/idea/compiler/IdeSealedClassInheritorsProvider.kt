@@ -48,5 +48,6 @@ object IdeSealedClassInheritorsProvider : SealedClassInheritorsProvider() {
                 val resolutionFacade = it.javaResolutionFacade() ?: return@mapper null
                 it.resolveToDescriptor(resolutionFacade)
             }.filterNotNull()
+            .sortedBy(ClassDescriptor::getName) // order needs to be stable (at least for tests)
     }
 }
