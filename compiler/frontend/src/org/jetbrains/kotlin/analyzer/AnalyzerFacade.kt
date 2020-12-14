@@ -33,7 +33,7 @@ import org.jetbrains.kotlin.platform.TargetPlatform
 import org.jetbrains.kotlin.platform.TargetPlatformVersion
 import org.jetbrains.kotlin.psi.KtFile
 import org.jetbrains.kotlin.resolve.SealedClassInheritorsProvider
-import org.jetbrains.kotlin.resolve.ClSealedClassInheritorsProvider
+import org.jetbrains.kotlin.resolve.CliSealedClassInheritorsProvider
 import org.jetbrains.kotlin.storage.StorageManager
 import org.jetbrains.kotlin.storage.getValue
 import java.util.*
@@ -122,7 +122,7 @@ abstract class ResolverForModuleFactory {
         moduleContent: ModuleContent<M>,
         resolverForProject: ResolverForProject<M>,
         languageVersionSettings: LanguageVersionSettings,
-        sealedInheritorsProvider: SealedClassInheritorsProvider = ClSealedClassInheritorsProvider
+        sealedInheritorsProvider: SealedClassInheritorsProvider = CliSealedClassInheritorsProvider
     ): ResolverForModule
 }
 

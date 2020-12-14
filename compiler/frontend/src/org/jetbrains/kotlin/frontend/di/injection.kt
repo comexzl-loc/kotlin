@@ -52,7 +52,7 @@ fun StorageComponentContainer.configureModule(
     analyzerServices: PlatformDependentAnalyzerServices,
     trace: BindingTrace,
     languageVersionSettings: LanguageVersionSettings,
-    sealedProvider: SealedClassInheritorsProvider = ClSealedClassInheritorsProvider
+    sealedProvider: SealedClassInheritorsProvider = CliSealedClassInheritorsProvider
 ) {
     useInstance(sealedProvider)
     useInstance(moduleContext)

@@ -14,7 +14,7 @@ import org.jetbrains.kotlin.descriptors.impl.ClassDescriptorBase
 import org.jetbrains.kotlin.incremental.components.NoLookupLocation
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.resolve.DescriptorFactory.createPrimaryConstructorForObject
-import org.jetbrains.kotlin.resolve.ClSealedClassInheritorsProvider
+import org.jetbrains.kotlin.resolve.CliSealedClassInheritorsProvider
 import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameSafe
 import org.jetbrains.kotlin.resolve.scopes.MemberScope
 import org.jetbrains.kotlin.resolve.scopes.StaticScopeForKotlinEnum
@@ -53,7 +53,7 @@ class CommonizedClassDescriptor(
     private val typeConstructor = CommonizedClassTypeConstructor(targetComponents, cirSupertypes)
     private val sealedSubclasses = targetComponents.storageManager.createLazyValue {
         // TODO: pass proper language version settings
-        ClSealedClassInheritorsProvider.computeSealedSubclasses(this, allowSealedInheritorsInDifferentFilesOfSamePackage = false)
+        CliSealedClassInheritorsProvider.computeSealedSubclasses(this, allowSealedInheritorsInDifferentFilesOfSamePackage = false)
     }
 
     private val declaredTypeParametersAndTypeParameterResolver = targetComponents.storageManager.createLazyValue {
