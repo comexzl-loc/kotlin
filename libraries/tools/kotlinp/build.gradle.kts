@@ -23,7 +23,7 @@ dependencies {
     testCompileOnly(project(":kotlinx-metadata"))
     testCompileOnly(project(":kotlinx-metadata-jvm"))
     testCompile(commonDep("junit:junit"))
-    testCompile(projectTests(":generators:test-generator"))
+    testCompile(projectTests(":compiler:tests-common"))
 
     testRuntime(project(":kotlinx-metadata-jvm", configuration = "runtime"))
 
