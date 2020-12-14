@@ -201,7 +201,7 @@ private fun createContainerToResolveCommonCode(
     shouldCheckExpectActual: Boolean
 ): StorageComponentContainer =
     createContainer("ResolveCommonCode", analyzerServices) {
-        configureModule(moduleContext, platform, analyzerServices, bindingTrace, languageVersionSettings,)
+        configureModule(moduleContext, platform, analyzerServices, bindingTrace, languageVersionSettings)
 
         useInstance(moduleContentScope)
         useInstance(declarationProviderFactory)
