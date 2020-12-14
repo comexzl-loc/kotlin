@@ -9,7 +9,7 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.psi.search.searches.ClassInheritorsSearch
 import com.intellij.psi.search.searches.ClassInheritorsSearch.SearchParameters
-import org.jetbrains.kotlin.asJava.LightClassGenerationSupport
+import org.jetbrains.kotlin.asJava.toLightClass
 import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.descriptors.containingPackage
 import org.jetbrains.kotlin.idea.caches.resolve.util.javaResolutionFacade
@@ -40,8 +40,7 @@ object IdeSealedClassInheritorsProvider : SealedClassInheritorsProvider() {
             GlobalSearchScope.fileScope(sealedKtClass.containingFile) // Kotlin version prior to 1.5
         }
 
-        val lightClassGenerationSupport = LightClassGenerationSupport.getInstance(sealedKtClass.project)
-        val lightClass = lightClassGenerationSupport.createUltraLightClass(sealedKtClass) ?: return emptyList()
+        val lightClass = sealedKtClass.toLightClass() ?: return emptyList()
         val searchParameters = SearchParameters(lightClass, searchScope, false, true, false)
 
         return ClassInheritorsSearch.search(searchParameters)
