@@ -163,7 +163,7 @@ class DeserializedClassDescriptor(
         }
 
         // This is needed because classes compiled with Kotlin 1.0 did not contain the sealed_subclass_fq_name field
-        return ClSealedClassInheritorsProvider.computeSealedSubclasses(this, freedomForSealedInterfacesSupported = false)
+        return ClSealedClassInheritorsProvider.computeSealedSubclasses(this, allowSealedInheritorsInDifferentFilesOfSamePackage = false)
     }
 
     override fun getSealedSubclasses() = sealedSubclasses()

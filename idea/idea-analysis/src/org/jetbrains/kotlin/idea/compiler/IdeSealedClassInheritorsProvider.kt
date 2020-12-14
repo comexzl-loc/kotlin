@@ -23,11 +23,11 @@ object IdeSealedClassInheritorsProvider : SealedClassInheritorsProvider() {
 
     override fun computeSealedSubclasses(
         sealedClass: ClassDescriptor,
-        freedomForSealedInterfacesSupported: Boolean
+        allowSealedInheritorsInDifferentFilesOfSamePackage: Boolean
     ): Collection<ClassDescriptor> {
 
         val sealedKtClass = sealedClass.findPsi() as? KtClass ?: return emptyList()
-        val searchScope: SearchScope = if (freedomForSealedInterfacesSupported) {
+        val searchScope: SearchScope = if (allowSealedInheritorsInDifferentFilesOfSamePackage) {
             val module = sealedKtClass.module ?: return emptyList()
             val moduleSourceScope = GlobalSearchScope.moduleScope(module)
             val containingPackage = sealedClass.containingPackage() ?: return emptyList()
